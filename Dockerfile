@@ -18,6 +18,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Выполняем миграции и собираем статику
+WORKDIR /app/russkaya_dusha
+RUN python manage.py makemigrations
 RUN python manage.py migrate
 RUN python manage.py collectstatic --noinput
 
